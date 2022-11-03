@@ -1,0 +1,15 @@
+.pagination {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  &-btn {
+    margin: 0 20px;
+  }
+
+  &-counter {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
