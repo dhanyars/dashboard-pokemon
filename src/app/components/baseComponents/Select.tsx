@@ -11,7 +11,9 @@ interface SelectProps {
 const Select: React.FC<SelectProps> = ({ onChange, label, options, value }) => {
   return (
     <div>
-      <div>{label}</div>
+      <div>
+        <label>{label}</label>
+      </div>
       <Form.Select value={value} onChange={(e) => onChange(e)}>
         {options.map((item: any) => (
           <option value={item.value}>{item.text}</option>
