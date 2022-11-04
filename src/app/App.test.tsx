@@ -15,12 +15,12 @@ const store = configureStore({
   middleware: [sagaMiddleware],
 });
 
-test("renders learn react link", () => {
+test("renders pokemon app", () => {
   render(
     <Provider store={store}>
       <App />
     </Provider>
   );
-  const linkElement = screen.getByText(/Sort by/i);
+  const linkElement = screen.getByText(/Search pokemon/i);
   expect(linkElement).toBeInTheDocument();
 });
