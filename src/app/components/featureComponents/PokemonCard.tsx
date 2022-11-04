@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "../baseComponents/Card";
-import { getRandomColor } from "../../utils/utils";
 import { Link } from "react-router-dom";
 
 export interface PokemonProps {
@@ -34,13 +33,19 @@ const PokemonCard: React.FC<PokemonProps> = ({
                 >
                   <Card style={{ background: " #CCECFF" }}>
                     <div>
-                      <div className="card-name">{item.name}</div>
+                      <div
+                        className="card-name"
+                        data-testid={`pokeon-name-${item.name}`}
+                      >
+                        {item.name}
+                      </div>
                       <div className="card-img">
                         {item.sprites.other.dream_world.front_default ? (
                           <img
                             height="100px"
                             width="100px"
                             src={item.sprites.other.dream_world.front_default}
+                            alt="pokemon"
                           ></img>
                         ) : null}
                       </div>

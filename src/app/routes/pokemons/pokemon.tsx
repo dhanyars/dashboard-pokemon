@@ -11,6 +11,7 @@ import { OPTIONS, OPTIONS_Records } from "../../constants";
 import "./_pokemon.scss";
 import { useDispatch } from "react-redux";
 import * as actions from "../../redux/actions";
+import Card from "../../components/baseComponents/Card";
 
 const PokemonDetails: React.FC<PokemonPageProps> = ({
   pokemon,
@@ -70,6 +71,7 @@ const PokemonDetails: React.FC<PokemonPageProps> = ({
     pokemon?.pokemonData,
     itemsPerPage,
     currentPage,
+    dispatch,
   ]);
 
   const totalPages = Math.ceil(filteredData?.length / itemsPerPage);
@@ -97,7 +99,7 @@ const PokemonDetails: React.FC<PokemonPageProps> = ({
           </Row>
           <Row className="pokemon-filter-outer">
             <Col md={4} sm={12} xs={12}>
-              {filteredData && (
+              {filteredData && filteredData.length >= 1 && (
                 <Pagination
                   onLeftClick={handlePrev}
                   onRightClick={handleNext}
@@ -136,9 +138,15 @@ const PokemonDetails: React.FC<PokemonPageProps> = ({
             />
           )}
 
+          {filteredData && filteredData.length === 0 && (
+            <Card>
+              <div className="pokemon-empty">No pokemon found</div>
+            </Card>
+          )}
+
           <Row className="pokemon-pagination">
             <Col md={12}>
-              {filteredData && (
+              {filteredData && filteredData.length >= 1 && (
                 <Pagination
                   onLeftClick={handlePrev}
                   onRightClick={handleNext}
