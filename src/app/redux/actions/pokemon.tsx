@@ -18,3 +18,4 @@ export const updatePokemonDetails = action(
   "POKEMON/UPDATE_POKEMON_DETAILS",
   fsa<any>()
 );
+export const updateFilters = action("POKEMON/UPDATE_FILTERS", fsa<any>());

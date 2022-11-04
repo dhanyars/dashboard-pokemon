@@ -1,6 +1,7 @@
 import { call, put, all, takeLatest } from "redux-saga/effects";
 import { pokemon } from "../actions";
 import * as api from "../../api";
+import { updateFilters } from "../actions/pokemon";
 
 export interface PokemonData {
   data: { results: Array<PokemonList> };
@@ -46,7 +47,9 @@ function* fetchDetails(action: any) {
 function* actionWatcher() {
   yield takeLatest(pokemon.load.type, fetchData);
   yield takeLatest(pokemon.pokemonDetailsLoad.type, fetchDetails);
+  yield takeLatest(pokemon.updateFilters.type, updateFilters);
 }
+
 export default function* rootSaga() {
   yield all([actionWatcher()]);
 }

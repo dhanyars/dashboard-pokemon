@@ -12,6 +12,11 @@ export interface pokemonState {
       results: [];
     };
   };
+  filter: {
+    sortBy: string;
+    itemsPerPage: number;
+    currentPage: number;
+  };
 }
 
 const initialState = {
@@ -22,6 +27,12 @@ const initialState = {
     data: {
       results: [],
     },
+  },
+  filter: {
+    search: "",
+    sort: "name",
+    itemsPerPage: 20,
+    currentPage: 1,
   },
 };
 
@@ -65,6 +76,15 @@ export default reducer<any>(
       pokemonDetails: {
         ...state.pokemonDetails,
         data: payload,
+      },
+    };
+  }),
+  on(pokemon.updateFilters, (state, { payload }) => {
+    return {
+      ...state,
+      filter: {
+        ...state.filter,
+        ...payload,
       },
     };
   })
