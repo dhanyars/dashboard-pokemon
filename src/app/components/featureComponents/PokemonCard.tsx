@@ -23,19 +23,19 @@ const PokemonCard: React.FC<PokemonProps> = ({
         <Row>
           {data.slice(indexOfFirstCard, indexOfLastCard).map((item: any) => {
             const types = item.types.map((itemType: any) => itemType.type.name);
-            const randomColor = getRandomColor();
+
             return (
-              <Col md={3} xs={12}>
+              <Col md={3} sm={6} xs={12} className="card-link text-center">
                 <Link
                   key={item.id}
                   to={{
                     pathname: `/PokemonDetails/?id=${item.id}`,
                   }}
                 >
-                  <Card style={{ background: randomColor }}>
+                  <Card style={{ background: " #CCECFF" }}>
                     <div>
-                      <div>{item.name}</div>
-                      <div>
+                      <div className="card-name">{item.name}</div>
+                      <div className="card-img">
                         {item.sprites.other.dream_world.front_default ? (
                           <img
                             height="100px"
@@ -44,7 +44,7 @@ const PokemonCard: React.FC<PokemonProps> = ({
                           ></img>
                         ) : null}
                       </div>
-                      <div>Type: {types?.toString()}</div>
+                      <div>{types?.toString()}</div>
                     </div>
                   </Card>
                 </Link>
