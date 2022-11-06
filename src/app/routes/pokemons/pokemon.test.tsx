@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import * as reducers from "../../../app/redux/reducers";
@@ -21662,5 +21662,17 @@ describe("Pokemon component", () => {
 
     expect(getByText("Pokemon Dashboard")).toBeTruthy();
     expect(getByText("No pokemon found")).toBeTruthy();
+  });
+
+  it("shows no pagination if pokemon result is not present", () => {
+    filters = {
+      search: "abc",
+      sort: "name",
+      itemsPerPage: 20,
+      currentPage: 1,
+    };
+    const { queryByText } = rendered(pokemon, filters, useLoadPage);
+    expect(queryByText("Prev")).not.toBeInTheDocument();
+    expect(queryByText("Next")).not.toBeInTheDocument();
   });
 });
