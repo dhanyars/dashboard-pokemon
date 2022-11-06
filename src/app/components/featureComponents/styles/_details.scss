@@ -1,0 +1,21 @@
+.card-details {
+  &-name {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  &-img {
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  &-outer {
+    margin-top: 20px;
+  }
+
+  &-back-btn {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,23 @@
+.card {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  &-link a,
+  &-link a:hover {
+    text-decoration: none;
+    color: #212529;
+  }
+
+  &-name {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+
+  &-img {
+    margin: 20px 0;
+  }
+}
