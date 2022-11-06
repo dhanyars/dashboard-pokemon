@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { PokemonPageProps } from ".";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import DetailsCard from "../../components/featureComponents/DetailsCard";
 
 const PokemonDetails: React.FC<PokemonPageProps> = ({

@@ -1,5 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
-import react from "react";
 import "./styles/_card.scss";
 
 export const Card: React.FC<any> = ({ onClick, children, style }) => {

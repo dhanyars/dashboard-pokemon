@@ -5,12 +5,9 @@ import createSagaMiddleware from "redux-saga";
 import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
 import { combineReducers } from "redux";
-
 import * as reducers from "./app/redux/reducers";
-import * as pokemon from "./app/redux/sagas";
 import rootSaga from "./app/redux/sagas/pokemon";
 import { configureStore } from "@reduxjs/toolkit";
-
 
 const rootReducer = combineReducers(reducers);
 const sagaMiddleware = createSagaMiddleware();
